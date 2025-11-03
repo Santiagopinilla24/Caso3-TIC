@@ -16,7 +16,7 @@ public class BuzonSalida {
 	         wait();
 	     }
 	     queue.offer(m);
-	     System.out.println("[" + Thread.currentThread().getName() + "]: guarda en el buzón de salida el mensaje " + m.getNombre());
+	     System.out.println("[" + Thread.currentThread().getName() + "]: guarda en el buzón de salida el mensaje " + m.getId());
 	    
 	     notifyAll();
 	 }
@@ -27,7 +27,7 @@ public class BuzonSalida {
 	     }
 	     
 	     Mensaje m = queue.poll();
-	     System.out.println("[" + Thread.currentThread().getName() + "]: sacó del buzón de salida el mensaje " + m.getNombre());
+	     System.out.println("[" + Thread.currentThread().getName() + "]: sacó del buzón de salida el mensaje " + m.getId());
 	    
 	     notifyAll();
 	     return m;

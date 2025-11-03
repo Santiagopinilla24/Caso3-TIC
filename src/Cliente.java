@@ -15,9 +15,9 @@ public class Cliente extends Thread {
 
 	 private Mensaje produce() {
 	     producedCount++;
-	     String msjNombre = String.valueOf(producedCount);
+	     int msjNombre = producedCount;
 	     System.out.println("[" + getName() + "]: produce el item " + msjNombre);
-	     return new Mensaje(msjNombre, this);
+	     return new Mensaje(msjNombre, false);
 	 }
 
 	 @Override
@@ -32,11 +32,10 @@ public class Cliente extends Thread {
 	                
 	                 buzonE.put(mensaje);
 	                 
-	                 System.out.println("[" + getName() + "]: se duerme hasta que su item " + mensaje.getNombre() + " sea procesado");
+	                 System.out.println("[" + getName() + "]: se duerme hasta que su item " + mensaje.getId() + " sea procesado");
 	           
-	                 mensaje.esperarHastaProcesado();
 	                 
-	                 System.out.println("[" + getName() + "]: se despierta porque su item " + mensaje.getNombre() + " fue procesado");
+	                 System.out.println("[" + getName() + "]: se despierta porque su item " + mensaje.getId() + " fue procesado");
 	             }
 	         }
 	         System.out.println("[" + getName() + "]: finalizado");

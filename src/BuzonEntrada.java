@@ -2,7 +2,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class BuzonEntrada {
-	 private int capacity;
+	 public int capacity;
 	 private Queue<Mensaje> queue;
 	
 	 public BuzonEntrada(int capacity) {
@@ -17,7 +17,7 @@ public class BuzonEntrada {
 	     }
 	     
 	     queue.offer(m);
-	     System.out.println("[" + Thread.currentThread().getName() + "]: guarda en el buzón de entrada el mensaje " + m.getNombre());
+	     System.out.println("[" + Thread.currentThread().getName() + "]: guarda en el buzón de entrada el mensaje " + m.getId());
 	    
 	     notifyAll();
 	 }
@@ -28,7 +28,7 @@ public class BuzonEntrada {
 	     }
 	     
 	     Mensaje m = queue.poll();
-	     System.out.println("[" + Thread.currentThread().getName() + "]: sacó del buzón de entrada el mensaje " + m.getNombre());
+	     System.out.println("[" + Thread.currentThread().getName() + "]: sacó del buzón de entrada el mensaje " + m.getId());
 	    
 	     notifyAll();
 	     return m;
