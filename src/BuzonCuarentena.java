@@ -36,7 +36,7 @@ public class BuzonCuarentena {
     public synchronized void removerMensaje(Mensaje m) {
         boolean removed = queue.remove(m);
         if (removed) {
-            System.out.println("[ManejadorCuarentena]: remueve " + m.toString() + " de cuarentena");
+            System.out.println("[ManejadorCuarentena]: remueve " + m.getId() + " de cuarentena");
         }
         notifyAll();
     }
